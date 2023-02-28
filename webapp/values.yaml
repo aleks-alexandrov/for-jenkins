@@ -4,5 +4,5 @@
 # Declare variables to be passed into your templates.container:
   name: wordpress
   image: aleksandrov22/webapp:11
-  restart: Always
-  labels: wordpress-app
+  #restart: Always
+  #labels: wordpress-app
