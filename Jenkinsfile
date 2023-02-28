@@ -1,6 +1,8 @@
-
 node {
     def app
+
+    // Define the DOCKERTAG property
+    def DOCKERTAG = "latest"
 
     stage('Clone repository') {
         checkout scm
