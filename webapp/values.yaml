@@ -1,5 +1,8 @@
-container:
+---
+# Default values for my-nginx-chart.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.container:
   name: wordpress
-  image: aleksandrov22/webapp:7
-  # restart: Always
-  # labels: webapp
+  image: aleksandrov22/webapp
+  restart: Always
+  labels: wordpress-app
