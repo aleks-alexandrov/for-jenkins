@@ -12,9 +12,9 @@ node {
                 withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh "git config user.email aleks.alexandrov@amusnet.com"
                     sh "git config user.name aleks.alexandrov"
-                    sh "cat my-webapp-chart/values.yaml"
-                    sh "sed -i 's+aleks.alexandrov/webapp.*+aleks.alexandrov/webapp:${DOCKERTAG}+g' my-webapp-chart/values.yaml"
-                    sh "cat my-webapp-chart/values.yaml"
+                    sh "cat webapp/values.yaml"
+                    sh "sed -i 's+aleks.alexandrov/webapp.*+aleks.alexandrov/webapp:${DOCKERTAG}+g' webapp/values.yaml"
+                    sh "cat webapp/values.yaml"
                     sh "git add ."
                     sh "git commit -m 'Done by Jenkins Job change heml: ${env.BUILD_NUMBER}'"
                     sh 'git rev-parse HEAD >> version.txt'
