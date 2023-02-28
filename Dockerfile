@@ -1,8 +1,10 @@
-FROM php:8.0-apache
+FROM wordpress:php7.4-fpm-alpine
 
-RUN apt update -y
-RUN apt upgrade -y
+ARG build
+ARG commit
+ARG ts
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-
-COPY ./website/* /var/www/html/
+RUN touch /var/www/html/version.txt
+RUN echo "Build: ${build}" >> /var/www/html/version.txt
+RUN echo "Commit: ${commit}" >> /var/www/html/version.txt
+RUN echo "Timestamp: ${ts}" >> /var/www/html/version.txt
