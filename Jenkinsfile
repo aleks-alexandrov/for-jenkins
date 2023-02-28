@@ -1,3 +1,4 @@
+
 node {
     def app
 
@@ -10,9 +11,9 @@ node {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 withCredentials([usernamePassword(credentialsId: 'github', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
                     sh "git config user.email aleks.alexandrov@amusnet.com"
-                    sh "git config user.name aleksandrov22"
+                    sh "git config user.name aleks.alexandrov"
                     sh "cat my-webapp-chart/values.yaml"
-                    sh "sed -i 's+aleksandrov22/webapp.*+aleksandrov22/webapp:${DOCKERTAG}+g' my-webapp-chart/values.yaml"
+                    sh "sed -i 's+aleks.alexandrov/webapp.*+aleks.alexandrov/webapp:${DOCKERTAG}+g' my-webapp-chart/values.yaml"
                     sh "cat my-webapp-chart/values.yaml"
                     sh "git add ."
                     sh "git commit -m 'Done by Jenkins Job change heml: ${env.BUILD_NUMBER}'"
