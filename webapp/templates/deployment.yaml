@@ -69,7 +69,7 @@ spec:
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: mysql-secret-4kc78t8247
+              name: mysql-secret
               key: password
         - name: WORDPRESS_DB_USER
           value: root
